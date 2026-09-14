@@ -1,0 +1,10 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "gympro-xampp",
+      "url": "http://localhost",
+      "port": 80
+    }
+  ]
+}

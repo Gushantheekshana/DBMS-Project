@@ -1,0 +1,10 @@
+.env
+/vendor/
+/storage/logs/*.log
+/storage/trainer-documents/*
+!/storage/trainer-documents/.gitkeep
+/storage/backups/*
+!/storage/backups/.gitkeep
+.phpunit.cache/
+/storage/test-*
+/.claude/settings.local.json
