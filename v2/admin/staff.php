@@ -1,0 +1,4 @@
+<?php
+declare(strict_types=1);
+require_once __DIR__ . '/../bootstrap/app.php';require_role('ADMIN');$rows=db_all("SELECT UserAccountID,Email,Role,Status,EmailVerifiedAt,LastLoginAt,CreatedAt FROM USER_ACCOUNT WHERE Role IN ('ADMIN','RECEPTIONIST') ORDER BY Role,Email");$pageTitle='Staff';$pageSubtitle='Administrative and reception accounts';include V2_ROOT.'/includes/header.php';?>
+<div class="table-wrap"><table><thead><tr><th>Email</th><th>Role</th><th>Status</th><th>Verified</th><th>Last login</th><th>Created</th></tr></thead><tbody><?php foreach($rows as $row):?><tr><td><?=e($row['Email'])?></td><td><?=e($row['Role'])?></td><td><?=e($row['Status'])?></td><td><?=e($row['EmailVerifiedAt']??'—')?></td><td><?=e($row['LastLoginAt']??'Never')?></td><td><?=e($row['CreatedAt'])?></td></tr><?php endforeach;?><?php if(!$rows):?><tr><td colspan="6">No staff accounts.</td></tr><?php endif;?></tbody></table></div><?php include V2_ROOT.'/includes/footer.php';?>
