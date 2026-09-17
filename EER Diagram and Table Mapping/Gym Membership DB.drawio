@@ -1,0 +1,640 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="Gym_DB_v2_EER" id="GymDBv2EER">
+    <mxGraphModel dx="2340" dy="1332" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2800" pageHeight="2400" background="#ffffff" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="ent_USER_ACCOUNT" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="USER_ACCOUNT" vertex="1">
+          <mxGeometry height="45" width="160" x="1345" y="517.5" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_UserAccountID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;UserAccountID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="115" x="1150" y="467.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_UserAccountID" edge="1" parent="1" source="attr_USER_ACCOUNT_UserAccountID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_Email" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="Email" vertex="1">
+          <mxGeometry height="35" width="115" x="1290" y="327.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_Email" edge="1" parent="1" source="attr_USER_ACCOUNT_Email" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_PasswordHash" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="PasswordHash" vertex="1">
+          <mxGeometry height="35" width="115" x="1390" y="297.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_PasswordHash" edge="1" parent="1" source="attr_USER_ACCOUNT_PasswordHash" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_Role" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="Role" vertex="1">
+          <mxGeometry height="35" width="115" x="1550" y="367.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_Role" edge="1" parent="1" source="attr_USER_ACCOUNT_Role" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_Status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="Status" vertex="1">
+          <mxGeometry height="35" width="115" x="1595" y="407.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_Status" edge="1" parent="1" source="attr_USER_ACCOUNT_Status" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_EmailVerifiedAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="EmailVerifiedAt" vertex="1">
+          <mxGeometry height="35" width="115" x="1175" y="420.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_EmailVerifiedAt" edge="1" parent="1" source="attr_USER_ACCOUNT_EmailVerifiedAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_LastLoginAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="LastLoginAt" vertex="1">
+          <mxGeometry height="35" width="115" x="1220" y="372.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_LastLoginAt" edge="1" parent="1" source="attr_USER_ACCOUNT_LastLoginAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_FailedLoginCount" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="FailedLoginCount" vertex="1">
+          <mxGeometry height="35" width="115" x="1495" y="327.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_FailedLoginCount" edge="1" parent="1" source="attr_USER_ACCOUNT_FailedLoginCount" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_USER_ACCOUNT_LockedUntil" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="LockedUntil" vertex="1">
+          <mxGeometry height="35" width="115" x="1625" y="447.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_USER_ACCOUNT_LockedUntil" edge="1" parent="1" source="attr_USER_ACCOUNT_LockedUntil" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_USER_ACCOUNT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_MEMBER" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="MEMBER" vertex="1">
+          <mxGeometry height="45" width="140" x="700" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_MemberID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;MemberID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="115" x="725" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_MemberID" edge="1" parent="1" source="attr_MEMBER_MemberID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_MemberNumber" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="MemberNumber" vertex="1">
+          <mxGeometry height="35" width="115" x="615" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_MemberNumber" edge="1" parent="1" source="attr_MEMBER_MemberNumber" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_FirstName" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="FirstName" vertex="1">
+          <mxGeometry height="35" width="115" x="410" y="527.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_FirstName" edge="1" parent="1" source="attr_MEMBER_FirstName" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_LastName" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="LastName" vertex="1">
+          <mxGeometry height="35" width="115" x="510" y="492.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_LastName" edge="1" parent="1" source="attr_MEMBER_LastName" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_DateOfBirth" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="DateOfBirth" vertex="1">
+          <mxGeometry height="35" width="115" x="285" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_DateOfBirth" edge="1" parent="1" source="attr_MEMBER_DateOfBirth" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_Phone" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="Phone" vertex="1">
+          <mxGeometry height="35" width="115" x="350" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_Phone" edge="1" parent="1" source="attr_MEMBER_Phone" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_EmergencyContactName" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="EmergencyContactName" vertex="1">
+          <mxGeometry height="35" width="160" x="260" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_EmergencyContactName" edge="1" parent="1" source="attr_MEMBER_EmergencyContactName" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_EmergencyContactPhone" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="EmergencyContactPhone" vertex="1">
+          <mxGeometry height="35" width="160" x="270" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_EmergencyContactPhone" edge="1" parent="1" source="attr_MEMBER_EmergencyContactPhone" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_JoinedOn" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="JoinedOn" vertex="1">
+          <mxGeometry height="35" width="115" x="292.5" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_JoinedOn" edge="1" parent="1" source="attr_MEMBER_JoinedOn" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBER_Status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="Status" vertex="1">
+          <mxGeometry height="35" width="115" x="395" y="795" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBER_Status" edge="1" parent="1" source="attr_MEMBER_Status" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_TRAINER" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="TRAINER" vertex="1">
+          <mxGeometry height="45" width="140" x="2000" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_TrainerID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;TrainerID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="115" x="2012.5" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_TrainerID" edge="1" parent="1" source="attr_TRAINER_TrainerID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_TrainerNumber" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="TrainerNumber" vertex="1">
+          <mxGeometry height="35" width="115" x="2190" y="590" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_TrainerNumber" edge="1" parent="1" source="attr_TRAINER_TrainerNumber" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_FirstName" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="FirstName" vertex="1">
+          <mxGeometry height="35" width="115" x="2105" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_FirstName" edge="1" parent="1" source="attr_TRAINER_FirstName" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_LastName" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="LastName" vertex="1">
+          <mxGeometry height="35" width="115" x="2280" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_LastName" edge="1" parent="1" source="attr_TRAINER_LastName" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_Phone" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="Phone" vertex="1">
+          <mxGeometry height="35" width="115" x="2320" y="673" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_Phone" edge="1" parent="1" source="attr_TRAINER_Phone" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_Specialization" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="Specialization" vertex="1">
+          <mxGeometry height="35" width="115" x="2360" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_Specialization" edge="1" parent="1" source="attr_TRAINER_Specialization" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_Bio" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="Bio" vertex="1">
+          <mxGeometry height="35" width="115" x="2270" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_Bio" edge="1" parent="1" source="attr_TRAINER_Bio" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_HireDate" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="HireDate" vertex="1">
+          <mxGeometry height="35" width="115" x="2320" y="765" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_HireDate" edge="1" parent="1" source="attr_TRAINER_HireDate" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_TRAINER_Status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#000000;" value="Status" vertex="1">
+          <mxGeometry height="35" width="115" x="2190" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_TRAINER_Status" edge="1" parent="1" source="attr_TRAINER_Status" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_GYM_VISIT" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="GYM_VISIT" vertex="1">
+          <mxGeometry height="45" width="140" x="395" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_VISIT_GymVisitID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;GymVisitID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="115" x="195" y="910" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_VISIT_GymVisitID" edge="1" parent="1" source="attr_GYM_VISIT_GymVisitID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_VISIT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_VISIT_CheckedInAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="CheckedInAt" vertex="1">
+          <mxGeometry height="35" width="115" x="195" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_VISIT_CheckedInAt" edge="1" parent="1" source="attr_GYM_VISIT_CheckedInAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_VISIT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_VISIT_CheckedOutAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="CheckedOutAt" vertex="1">
+          <mxGeometry height="35" width="115" x="195" y="1070" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_VISIT_CheckedOutAt" edge="1" parent="1" source="attr_GYM_VISIT_CheckedOutAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_VISIT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_VISIT_Notes" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="Notes" vertex="1">
+          <mxGeometry height="35" width="115" x="195" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_VISIT_Notes" edge="1" parent="1" source="attr_GYM_VISIT_Notes" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_VISIT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_VISIT_OpenVisitMarker" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;dashed=1;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="OpenVisitMarker" vertex="1">
+          <mxGeometry height="35" width="130" x="195" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_VISIT_OpenVisitMarker" edge="1" parent="1" source="attr_GYM_VISIT_OpenVisitMarker" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_VISIT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_MEMBERSHIP" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="MEMBERSHIP" vertex="1">
+          <mxGeometry height="45" width="150" x="800" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_MembershipID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;MembershipID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="115" x="540" y="1110" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_MembershipID" edge="1" parent="1" source="attr_MEMBERSHIP_MembershipID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_StartsOn" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="StartsOn" vertex="1">
+          <mxGeometry height="35" width="115" x="545" y="1165" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_StartsOn" edge="1" parent="1" source="attr_MEMBERSHIP_StartsOn" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_EndsOn" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="EndsOn" vertex="1">
+          <mxGeometry height="35" width="115" x="540" y="1215" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_EndsOn" edge="1" parent="1" source="attr_MEMBERSHIP_EndsOn" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_Status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="Status" vertex="1">
+          <mxGeometry height="35" width="115" x="545" y="1265" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_Status" edge="1" parent="1" source="attr_MEMBERSHIP_Status" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_CancelledAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="CancelledAt" vertex="1">
+          <mxGeometry height="35" width="115" x="550" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_CancelledAt" edge="1" parent="1" source="attr_MEMBERSHIP_CancelledAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PlanNameSnapshot" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="PlanNameSnapshot" vertex="1">
+          <mxGeometry height="35" width="140" x="537.5" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PlanNameSnapshot" edge="1" parent="1" source="attr_MEMBERSHIP_PlanNameSnapshot" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PriceSnapshot" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="PriceSnapshot" vertex="1">
+          <mxGeometry height="35" width="130" x="535" y="1431" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PriceSnapshot" edge="1" parent="1" source="attr_MEMBERSHIP_PriceSnapshot" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_CurrencySnapshot" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="CurrencySnapshot" vertex="1">
+          <mxGeometry height="35" width="140" x="537.5" y="1492.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_CurrencySnapshot" edge="1" parent="1" source="attr_MEMBERSHIP_CurrencySnapshot" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_CLASS_ENROLLMENT" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;" value="CLASS_ENROLLMENT" vertex="1">
+          <mxGeometry height="45" width="170" x="1380" y="920" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_CLASS_ENROLLMENT_ClassEnrollmentID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;ClassEnrollmentID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="140" x="1310" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_CLASS_ENROLLMENT_ClassEnrollmentID" edge="1" parent="1" source="attr_CLASS_ENROLLMENT_ClassEnrollmentID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_CLASS_ENROLLMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_CLASS_ENROLLMENT_Status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;" value="Status" vertex="1">
+          <mxGeometry height="35" width="115" x="1465" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_CLASS_ENROLLMENT_Status" edge="1" parent="1" source="attr_CLASS_ENROLLMENT_Status" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_CLASS_ENROLLMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_CLASS_ENROLLMENT_EnrolledAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;" value="EnrolledAt" vertex="1">
+          <mxGeometry height="35" width="115" x="1280" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_CLASS_ENROLLMENT_EnrolledAt" edge="1" parent="1" source="attr_CLASS_ENROLLMENT_EnrolledAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_CLASS_ENROLLMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_CLASS_ENROLLMENT_CancelledAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#f8cecc;strokeColor=#b85450;fontColor=#000000;" value="CancelledAt" vertex="1">
+          <mxGeometry height="35" width="115" x="1545" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_CLASS_ENROLLMENT_CancelledAt" edge="1" parent="1" source="attr_CLASS_ENROLLMENT_CancelledAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_CLASS_ENROLLMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_GYM_CLASS" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="GYM_CLASS" vertex="1">
+          <mxGeometry height="45" width="140" x="2000" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_CLASS_GymClassID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;GymClassID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="115" x="2165" y="1127.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_CLASS_GymClassID" edge="1" parent="1" source="attr_GYM_CLASS_GymClassID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_CLASS_Name" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="Name" vertex="1">
+          <mxGeometry height="35" width="115" x="2245" y="1162.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_CLASS_Name" edge="1" parent="1" source="attr_GYM_CLASS_Name" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_CLASS_Description" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="Description" vertex="1">
+          <mxGeometry height="35" width="115" x="2305" y="1200" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_CLASS_Description" edge="1" parent="1" source="attr_GYM_CLASS_Description" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_CLASS_Capacity" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="Capacity" vertex="1">
+          <mxGeometry height="35" width="115" x="2335" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_CLASS_Capacity" edge="1" parent="1" source="attr_GYM_CLASS_Capacity" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_CLASS_StartsAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="StartsAt" vertex="1">
+          <mxGeometry height="35" width="115" x="2350" y="1300" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_CLASS_StartsAt" edge="1" parent="1" source="attr_GYM_CLASS_StartsAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_CLASS_EndsAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="EndsAt" vertex="1">
+          <mxGeometry height="35" width="115" x="2305" y="1345" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_CLASS_EndsAt" edge="1" parent="1" source="attr_GYM_CLASS_EndsAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_CLASS_Location" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="Location" vertex="1">
+          <mxGeometry height="35" width="115" x="2130" y="1405" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_CLASS_Location" edge="1" parent="1" source="attr_GYM_CLASS_Location" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_GYM_CLASS_Status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#fff2cc;strokeColor=#d6b656;fontColor=#000000;" value="Status" vertex="1">
+          <mxGeometry height="35" width="115" x="2220" y="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_GYM_CLASS_Status" edge="1" parent="1" source="attr_GYM_CLASS_Status" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_MEMBERSHIP_PLAN" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="MEMBERSHIP_PLAN" vertex="1">
+          <mxGeometry height="45" width="170" x="790" y="1630" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PLAN_MembershipPlanID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;MembershipPlanID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="140" x="620" y="1690" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PLAN_MembershipPlanID" edge="1" parent="1" source="attr_MEMBERSHIP_PLAN_MembershipPlanID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PLAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PLAN_Name" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="Name" vertex="1">
+          <mxGeometry height="35" width="115" x="690" y="1780" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PLAN_Name" edge="1" parent="1" source="attr_MEMBERSHIP_PLAN_Name" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PLAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PLAN_Description" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="Description" vertex="1">
+          <mxGeometry height="35" width="115" x="994.07" y="1788" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PLAN_Description" edge="1" parent="1" source="attr_MEMBERSHIP_PLAN_Description" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PLAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PLAN_DurationMonths" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="DurationMonths" vertex="1">
+          <mxGeometry height="35" width="130" x="1045" y="1690" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PLAN_DurationMonths" edge="1" parent="1" source="attr_MEMBERSHIP_PLAN_DurationMonths" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PLAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PLAN_Price" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="Price" vertex="1">
+          <mxGeometry height="35" width="115" x="632.5" y="1740" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PLAN_Price" edge="1" parent="1" source="attr_MEMBERSHIP_PLAN_Price" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PLAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PLAN_Currency" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="Currency" vertex="1">
+          <mxGeometry height="35" width="115" x="770" y="1830" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PLAN_Currency" edge="1" parent="1" source="attr_MEMBERSHIP_PLAN_Currency" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PLAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PLAN_ClassLimit" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="ClassLimit" vertex="1">
+          <mxGeometry height="35" width="115" x="895" y="1830" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PLAN_ClassLimit" edge="1" parent="1" source="attr_MEMBERSHIP_PLAN_ClassLimit" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PLAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PLAN_IsActive" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#d5e8d4;strokeColor=#82b366;fontColor=#000000;" value="IsActive" vertex="1">
+          <mxGeometry height="35" width="115" x="1070" y="1745" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PLAN_IsActive" edge="1" parent="1" source="attr_MEMBERSHIP_PLAN_IsActive" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PLAN">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="ent_MEMBERSHIP_PAYMENT" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="MEMBERSHIP_PAYMENT" vertex="1">
+          <mxGeometry height="45" width="190" x="1109.07" y="1320" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_MembershipPaymentID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;MembershipPaymentID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="160" x="929.0699999999999" y="1370" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_MembershipPaymentID" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_MembershipPaymentID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_Amount" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="Amount" vertex="1">
+          <mxGeometry height="35" width="115" x="1007.5" y="1475" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_Amount" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_Amount" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_Currency" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="Currency" vertex="1">
+          <mxGeometry height="35" width="115" x="1350" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_Currency" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_Currency" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_Status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="Status" vertex="1">
+          <mxGeometry height="35" width="115" x="1390" y="1325" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_Status" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_Status" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_Method" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="Method" vertex="1">
+          <mxGeometry height="35" width="115" x="939.9999999999999" y="1425" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_Method" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_Method" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_TransactionReference" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="TransactionReference" vertex="1">
+          <mxGeometry height="35" width="160" x="1070" y="1530" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_TransactionReference" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_TransactionReference" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_IdempotencyKey" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="IdempotencyKey" vertex="1">
+          <mxGeometry height="35" width="130" x="1240" y="1510" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_IdempotencyKey" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_IdempotencyKey" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_PaidAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="PaidAt" vertex="1">
+          <mxGeometry height="35" width="115" x="1430" y="1440" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_PaidAt" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_PaidAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_MEMBERSHIP_PAYMENT_Notes" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e1d5e7;strokeColor=#9673a6;fontColor=#000000;" value="Notes" vertex="1">
+          <mxGeometry height="35" width="115" x="1450" y="1380" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_MEMBERSHIP_PAYMENT_Notes" edge="1" parent="1" source="attr_MEMBERSHIP_PAYMENT_Notes" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;exitX=0;exitY=0;exitDx=0;exitDy=0;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1529.9963292726964" y="1531.9809762952545" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="ent_CLASS_ATTENDANCE" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fontStyle=1;fontSize=13;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="CLASS_ATTENDANCE" vertex="1">
+          <mxGeometry height="45" width="170" x="1740" y="1335" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_CLASS_ATTENDANCE_ClassAttendanceID" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#e3c800;strokeColor=#B09500;fontColor=#000000;" value="&lt;u&gt;ClassAttendanceID&lt;/u&gt;" vertex="1">
+          <mxGeometry height="35" width="150" x="1635" y="1415" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_CLASS_ATTENDANCE_ClassAttendanceID" edge="1" parent="1" source="attr_CLASS_ATTENDANCE_ClassAttendanceID" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_CLASS_ATTENDANCE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_CLASS_ATTENDANCE_Status" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="Status" vertex="1">
+          <mxGeometry height="35" width="115" x="1885" y="1415" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_CLASS_ATTENDANCE_Status" edge="1" parent="1" source="attr_CLASS_ATTENDANCE_Status" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_CLASS_ATTENDANCE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_CLASS_ATTENDANCE_CheckedInAt" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="CheckedInAt" vertex="1">
+          <mxGeometry height="35" width="115" x="1710" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_CLASS_ATTENDANCE_CheckedInAt" edge="1" parent="1" source="attr_CLASS_ATTENDANCE_CheckedInAt" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_CLASS_ATTENDANCE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="attr_CLASS_ATTENDANCE_Notes" parent="1" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;fillColor=#dae8fc;strokeColor=#6c8ebf;fontColor=#000000;" value="Notes" vertex="1">
+          <mxGeometry height="35" width="115" x="1830" y="1460" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_attr_CLASS_ATTENDANCE_Notes" edge="1" parent="1" source="attr_CLASS_ATTENDANCE_Notes" style="endArrow=none;html=1;rounded=0;strokeColor=#888888;" target="ent_CLASS_ATTENDANCE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_ua_member" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Has_Account" vertex="1">
+          <mxGeometry height="60" width="90" x="1032.5" y="613" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_ua_member_1" edge="1" parent="1" source="ent_USER_ACCOUNT" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_ua_member">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_ua_member_2" edge="1" parent="1" source="rel_ua_member" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_MEMBER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_ua_member_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="1230" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_ua_member_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="920" y="645" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_ua_trainer" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Has_Account" vertex="1">
+          <mxGeometry height="60" width="90" x="1710" y="625" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_ua_trainer_1" edge="1" parent="1" source="ent_USER_ACCOUNT" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_ua_trainer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_ua_trainer_2" edge="1" parent="1" source="rel_ua_trainer" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_TRAINER">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_ua_trainer_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="1585" y="605" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_ua_trainer_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="1905" y="670" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_member_visit" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Makes" vertex="1">
+          <mxGeometry height="60" width="90" x="565" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_member_visit_1" edge="1" parent="1" source="ent_MEMBER" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="rel_member_visit">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_member_visit_2" edge="1" parent="1" source="rel_member_visit" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" target="ent_GYM_VISIT">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="465" y="910" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="card_rel_member_visit_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="620" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_member_visit_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="N" vertex="1">
+          <mxGeometry height="25" width="25" x="490" y="885" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_member_mship" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Holds" vertex="1">
+          <mxGeometry height="60" width="90" x="780" y="970" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_member_mship_1" edge="1" parent="1" source="ent_MEMBER" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_member_mship">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_member_mship_2" edge="1" parent="1" source="rel_member_mship" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_member_mship_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="757.5" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_member_mship_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="N" vertex="1">
+          <mxGeometry height="25" width="25" x="805" y="1115" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_member_enroll" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Enrolls" vertex="1">
+          <mxGeometry height="60" width="90" x="1020" y="812.5" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_member_enroll_1" edge="1" parent="1" source="ent_MEMBER" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_member_enroll">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_member_enroll_2" edge="1" parent="1" source="rel_member_enroll" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_CLASS_ENROLLMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_member_enroll_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="880" y="800" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_member_enroll_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="N" vertex="1">
+          <mxGeometry height="25" width="25" x="1170" y="885" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_trainer_class" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Teaches" vertex="1">
+          <mxGeometry height="60" width="90" x="2025" y="930" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_trainer_class_1" edge="1" parent="1" source="ent_TRAINER" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_trainer_class">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_trainer_class_2" edge="1" parent="1" source="rel_trainer_class" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_GYM_CLASS">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_trainer_class_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="2020" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_trainer_class_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="N" vertex="1">
+          <mxGeometry height="25" width="25" x="2080" y="1095" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_plan_mship" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Defines" vertex="1">
+          <mxGeometry height="60" width="90" x="830" y="1480" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_plan_mship_1" edge="1" parent="1" source="ent_MEMBERSHIP_PLAN" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_plan_mship">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_plan_mship_2" edge="1" parent="1" source="rel_plan_mship" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_MEMBERSHIP">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_plan_mship_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="982.5000000000002" y="1185" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_plan_mship_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="N" vertex="1">
+          <mxGeometry height="25" width="25" x="1190" y="1230" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_mship_payment" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Receives" vertex="1">
+          <mxGeometry height="60" width="90" x="1100" y="1130" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_mship_payment_1" edge="1" parent="1" source="ent_MEMBERSHIP" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_mship_payment">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_mship_payment_2" edge="1" parent="1" source="rel_mship_payment" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_MEMBERSHIP_PAYMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_mship_payment_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="845" y="1360" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_mship_payment_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="N" vertex="1">
+          <mxGeometry height="25" width="25" x="845" y="1565" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_class_enroll" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Includes" vertex="1">
+          <mxGeometry height="60" width="90" x="1745" y="1080" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_class_enroll_1" edge="1" parent="1" source="ent_GYM_CLASS" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_class_enroll">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_class_enroll_2" edge="1" parent="1" source="rel_class_enroll" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_CLASS_ENROLLMENT">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_class_enroll_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="1720" y="1260" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_class_enroll_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="N" vertex="1">
+          <mxGeometry height="25" width="25" x="1670" y="1010" as="geometry" />
+        </mxCell>
+        <mxCell id="rel_enroll_attend" parent="1" style="shape=rhombus;perimeter=rhombusPerimeter;whiteSpace=wrap;html=1;align=center;fontStyle=1;fontSize=12;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="Records" vertex="1">
+          <mxGeometry height="60" width="90" x="1630" y="1150" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_enroll_attend_1" edge="1" parent="1" source="ent_CLASS_ENROLLMENT" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="rel_enroll_attend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_rel_enroll_attend_2" edge="1" parent="1" source="rel_enroll_attend" style="endArrow=none;html=1;rounded=0;strokeWidth=1.5;strokeColor=#333333;" target="ent_CLASS_ATTENDANCE">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_enroll_attend_1" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="1550" y="1060" as="geometry" />
+        </mxCell>
+        <mxCell id="card_rel_enroll_attend_2" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontStyle=1;fontSize=13;fontColor=#b85450;" value="1" vertex="1">
+          <mxGeometry height="25" width="25" x="1890" y="1127.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
