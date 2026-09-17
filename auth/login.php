@@ -3,7 +3,7 @@ require_once __DIR__ . '/../bootstrap/app.php';
 require_guest();
 
 $pageTitle = 'Choose sign-in portal';
-$authLayout = true;
+//$authLayout = true;
 include ROOT_PATH . '/includes/header.php';
 
 $portals = [
