@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-//const ROOT_PATH = __DIR__ . '/..';
+const ROOT_PATH = __DIR__ . '/..';
 
 $vendor = ROOT_PATH . '/vendor/autoload.php';
 if (is_file($vendor)) {
