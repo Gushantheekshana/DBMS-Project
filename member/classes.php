@@ -34,7 +34,7 @@ $rows = db_all(
     'i',
     [$user['MemberID']]
 );
-$pageTitle = 'Browse classes';
+//$pageTitle = 'Browse classes';
 $pageSubtitle = 'Requests go directly to the active class trainer';
 include ROOT_PATH . '/includes/header.php';
 ?>
