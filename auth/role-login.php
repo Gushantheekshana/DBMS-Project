@@ -35,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-$demoAccounts = [
+/*$demoAccounts = [
     'MEMBER' => 'member.demo@gmail.com',
     'TRAINER' => 'trainer.demo@gmail.com',
     'RECEPTIONIST' => 'reception.demo@gmail.com',
     'SUPER_ADMIN' => 'admin.demo@gmail.com',
-];
+];*/
 $pageTitle = $loginTitle;
 $authLayout = true;
 include ROOT_PATH . '/includes/header.php';
