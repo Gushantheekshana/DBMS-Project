@@ -4,6 +4,52 @@
   const body = document.body;
   const toggle = document.querySelector('[data-nav-toggle]');
   const closeButton = document.querySelector('[data-nav-close]');
+  const reducedMotion = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const milliseconds = (value) => {
+    const duration = Number.parseFloat(value);
+    return value.trim().endsWith('ms') ? duration : duration * 1000;
+  };
+
+  const motionDuration = (element) => {
+    const styles = window.getComputedStyle(element);
+    const transitionDurations = styles.transitionDuration.split(',').map(milliseconds);
+    const transitionDelays = styles.transitionDelay.split(',').map(milliseconds);
+    const animationDurations = styles.animationDuration.split(',').map(milliseconds);
+    const animationDelays = styles.animationDelay.split(',').map(milliseconds);
+    const longest = (durations, delays) => durations.reduce((maximum, duration, index) => (
+      Math.max(maximum, duration + (delays[index] ?? delays[0] ?? 0))
+    ), 0);
+
+    return Math.max(longest(transitionDurations, transitionDelays), longest(animationDurations, animationDelays));
+  };
+
+  const afterMotion = (element, callback) => {
+    if (reducedMotion()) {
+      callback();
+      return;
+    }
+
+    const duration = motionDuration(element);
+    if (duration <= 0) {
+      callback();
+      return;
+    }
+
+    let complete = false;
+    const finish = (event) => {
+      if (event && event.target !== element) return;
+      if (complete) return;
+      complete = true;
+      element.removeEventListener('transitionend', finish);
+      element.removeEventListener('animationend', finish);
+      callback();
+    };
+
+    element.addEventListener('transitionend', finish);
+    element.addEventListener('animationend', finish);
+    window.setTimeout(() => finish(), duration + 50);
+  };
 
   const setNavigation = (open) => {
     body.classList.toggle('nav-open', open);
@@ -26,7 +72,7 @@
       const alert = button.closest('[data-alert], .alert');
       if (!alert) return;
       alert.classList.add('is-leaving');
-      window.setTimeout(() => alert.remove(), 180);
+      afterMotion(alert, () => alert.remove());
     });
   });
 
@@ -80,8 +126,21 @@
     const submitButton = dialog.querySelector('[data-confirm-submit]');
     const cancelButton = dialog.querySelector('[data-confirm-cancel]');
     let opener = null;
+    let closing = false;
 
-    const closeDialog = () => dialog.close();
+    const closeDialog = () => {
+      if (!dialog.open || closing) return;
+      if (reducedMotion()) {
+        dialog.close();
+        return;
+      }
+
+      closing = true;
+      dialog.classList.add('is-closing');
+      afterMotion(dialog, () => {
+        if (dialog.open) dialog.close();
+      });
+    };
 
     document.querySelectorAll('[data-confirm-open]').forEach((button) => {
       if (button.dataset.confirmOpen !== dialog.id) return;
@@ -114,10 +173,17 @@
     });
 
     cancelButton?.addEventListener('click', closeDialog);
+    dialog.addEventListener('cancel', (event) => {
+      if (reducedMotion()) return;
+      event.preventDefault();
+      closeDialog();
+    });
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog) closeDialog();
     });
     dialog.addEventListener('close', () => {
+      dialog.classList.remove('is-closing');
+      closing = false;
       form?.reset();
       form?.removeAttribute('aria-busy');
       if (form instanceof HTMLElement) delete form.dataset.submitting;
