@@ -38,7 +38,7 @@ $rows = db_all(
 );
 $pending = array_values(array_filter($rows, static fn(array $row): bool => $row['Status'] === 'PENDING'));
 $history = array_values(array_filter($rows, static fn(array $row): bool => $row['Status'] !== 'PENDING'));
-$pageTitle = 'Enrollment requests';
+//$pageTitle = 'Enrollment requests';
 $pageSubtitle = count($pending) . ' request(s) need a decision';
 include ROOT_PATH . '/includes/header.php';
 ?>
