@@ -11,6 +11,24 @@
 7. Sign-in verifies the hash and checks both role and active status. Only an approved trainer can sign in and perform trainer operations such as creating classes.
 8. Other deactivation changes status instead of deleting operational history.
 
+## Staff account provisioning
+
+1. An active administrator opens the Staff workspace and submits a CSRF-protected account form.
+2. The service verifies that the acting account is still an active `ADMIN`; route authorization alone is not trusted.
+3. The administrator may create only an Administrative account, stored as `ADMIN`, or a Receptionist account, stored as `RECEPTIONIST`.
+4. The email is normalized and remains globally unique, while the password is stored only as a `password_hash()` value.
+5. Provisioned staff accounts are immediately `ACTIVE` and email-verified because V2 has no invitation or email-verification workflow.
+6. Administrator and receptionist accounts have no `MEMBER` or `TRAINER` profile row and sign in only through their matching role portal.
+
+## Staff account removal
+
+1. An active administrator selects Remove for an eligible staff account, which opens a contextual confirmation dialog.
+2. The primary demo administrator (`admin.demo@example.test`) is protected and can never be removed or disabled.
+3. Self-removal is strictly blocked so an administrator cannot remove their own currently logged-in account.
+4. The last active administrator account cannot be removed, preventing total administrative lockout.
+5. If the target staff account has recorded operational activity (`GYM_VISIT` check-ins/check-outs, `CLASS_ATTENDANCE` marked, `MEMBERSHIP_PAYMENT` recorded, or `TRAINER` reviewed), the service updates its status to `DISABLED` instead of hard-deleting, preserving audit attribution and foreign key integrity.
+6. If the target staff account has zero recorded operational activity, the service permanently deletes the `USER_ACCOUNT` row.
+
 ## Membership purchase
 
 1. The member selects an active `MEMBERSHIP_PLAN`.

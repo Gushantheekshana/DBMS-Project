@@ -7,7 +7,9 @@ Run from the repository root:
 ```sh
 php -l v2/cli/seed-demo.php
 php -l v2/tests/schema_contract.php
+php -l v2/tests/staff_account_workflow.php
 php v2/tests/schema_contract.php
+php v2/tests/staff_account_workflow.php
 ```
 
 The schema contract is a standalone PHP script. It parses the migration, requires exactly the documented ten business `CREATE TABLE` statements plus `SCHEMA_MIGRATION`, checks every business column, primary/unique keys, foreign keys, and InnoDB/utf8mb4 declarations, and exits nonzero with readable failures.
@@ -35,6 +37,12 @@ On a database containing only this seed set, the five added scenarios produce fi
 At minimum, automate or manually verify:
 
 - each role can sign in and cannot access another role's restricted routes;
+- an active administrator can create Administrative (`ADMIN`) and Receptionist (`RECEPTIONIST`) accounts from Staff, while non-admin, inactive, and direct-post actors remain blocked;
+- staff creation rejects invalid CSRF, password mismatch/length errors, duplicate normalized email, and tampered roles without storing passwords in old input or creating partial rows;
+- provisioned staff are active and verified, have no member/trainer profile, appear once after redirect/refresh, and can sign in only through their matching role portal;
+- the Staff form remains labeled, keyboard-usable, aligned across inputs, and responsive while the account table retains horizontal overflow on narrow screens;
+- an administrator can remove staff accounts using a contextual confirmation dialog, while `admin.demo@example.test`, self-deletion, and last-active-admin lockout remain strictly blocked;
+- unreferenced staff accounts are permanently deleted, while accounts with operational records (visits, attendance, payments, trainer reviews) are safely disabled;
 - a newly registered trainer appears in the administrator's Trainer requests queue, receives the approval-pending login message, and cannot create a session;
 - approval activates both the trainer profile and account before login/class creation succeeds;
 - rejection keeps login blocked, records a reason, and permits a revised same-email application that returns to pending;
