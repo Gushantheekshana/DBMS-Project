@@ -1,7 +1,10 @@
 <?php
 declare(strict_types=1);
 
-const V2_ROOT = __DIR__ . '/..';
+defined('V2_ROOT') || define('V2_ROOT', dirname(__DIR__));
+defined('GYMPRO_BACKEND_ROOT') || define('GYMPRO_BACKEND_ROOT', V2_ROOT);
+defined('GYMPRO_UI_ROOT') || define('GYMPRO_UI_ROOT', V2_ROOT);
+defined('GYMPRO_FRONTEND') || define('GYMPRO_FRONTEND', 'v2');
 
 require_once __DIR__ . '/helpers.php';
 

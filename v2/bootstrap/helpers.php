@@ -55,8 +55,16 @@ function config(string $key, mixed $default = null): mixed
     }
 
     if (!array_key_exists($file, $files)) {
-        $path = V2_ROOT . '/config/' . $file . '.php';
-        $files[$file] = is_file($path) ? require $path : [];
+        $backendPath = GYMPRO_BACKEND_ROOT . '/config/' . $file . '.php';
+        $frontendPath = GYMPRO_UI_ROOT . '/config/' . $file . '.php';
+        $backend = is_file($backendPath) ? require $backendPath : [];
+        $frontend = $frontendPath !== $backendPath && is_file($frontendPath)
+            ? require $frontendPath
+            : [];
+        $files[$file] = array_replace_recursive(
+            is_array($backend) ? $backend : [],
+            is_array($frontend) ? $frontend : []
+        );
     }
 
     $value = $files[$file];
@@ -73,6 +81,16 @@ function config(string $key, mixed $default = null): mixed
 function base_url(string $path = ''): string
 {
     return rtrim((string) config('app.url'), '/') . '/' . ltrim($path, '/');
+}
+
+function ui_root(): string
+{
+    return GYMPRO_UI_ROOT;
+}
+
+function ui_file(string $path): string
+{
+    return rtrim(ui_root(), '/\\') . '/' . ltrim($path, '/\\');
 }
 
 function redirect(string $path, int $status = 302): never
@@ -230,10 +248,10 @@ function require_role(string ...$roles): void
         http_response_code(403);
         $pageTitle = 'Access denied';
         $pageSubtitle = 'This area is not available to your account.';
-        if (is_file(V2_ROOT . '/includes/header.php')) {
-            include V2_ROOT . '/includes/header.php';
+        if (is_file(ui_file('includes/header.php'))) {
+            include ui_file('includes/header.php');
             echo '<section class="empty-state"><h2>Access denied</h2><p>Return to your dashboard to continue.</p><a class="btn btn-primary" href="' . e(base_url(account_home(current_user()))) . '">Go to dashboard</a></section>';
-            include V2_ROOT . '/includes/footer.php';
+            include ui_file('includes/footer.php');
         } else {
             echo 'Access denied.';
         }

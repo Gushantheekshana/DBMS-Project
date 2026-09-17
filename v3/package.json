@@ -1,0 +1,19 @@
+{
+  "name": "gympro-v3-ui",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Local production assets for the GymPro V3 PHP frontend.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./assets/css/input.css -o ./assets/css/app.css --minify",
+    "build:flowbite": "node ./scripts/build-flowbite.mjs",
+    "build:icons": "node ./scripts/build-icons.mjs",
+    "build": "npm run build:flowbite && npm run build:icons && npm run build:css",
+    "check:js": "node --check ./assets/js/app.js && node --check ./assets/vendor/flowbite/flowbite.min.js"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "4.3.3",
+    "flowbite": "4.0.2",
+    "lucide-static": "1.47.0",
+    "tailwindcss": "4.3.3"
+  }
+}
