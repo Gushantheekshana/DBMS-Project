@@ -40,7 +40,7 @@ function env(string $key, mixed $default = null): mixed {
 }
 
 function base_url(string $path = ''): string {
-    return rtrim((string)env('APP_URL', 'http://localhost/gym_system'), '/') . '/' . ltrim($path, '/');
+    return rtrim((string)env('APP_URL', 'http://localhost/gym_system/v1'), '/') . '/' . ltrim($path, '/');
 }
 
 function redirect(string $path): never {

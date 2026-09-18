@@ -1,0 +1,96 @@
+name: Feature request
+description: Propose an improvement to GymPro
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Describe the user problem before the proposed implementation. Significant schema or workflow changes should be discussed before development begins.
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or use case
+      description: Who needs this change, and what problem does it solve?
+      placeholder: As a ..., I need ... because ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Proposed outcome
+      description: Describe the behavior or result you want, without requiring a particular implementation.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: roles
+    attributes:
+      label: Affected roles
+      options:
+        - label: Administrator
+        - label: Receptionist
+        - label: Trainer
+        - label: Member
+        - label: Public or authentication flow
+        - label: Maintainer or developer workflow
+    validations:
+      required: true
+
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Likely affected layer
+      options:
+        - V3 frontend
+        - V2 application or backend
+        - Database or migration
+        - Earlier root application
+        - Documentation or tooling
+        - Multiple layers or unsure
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable outcomes that would make the feature complete.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: data
+    attributes:
+      label: Database or migration impact
+      description: Describe new data, schema changes, migration needs, or state why none are expected.
+    validations:
+      required: true
+
+  - type: textarea
+    id: security
+    attributes:
+      label: Security and privacy considerations
+      description: Consider roles, authorization, personal data, uploads, sessions, and audit history.
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: What other approaches or workarounds have you considered?
+
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and did not find an equivalent request.
+          required: true
