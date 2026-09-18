@@ -23,7 +23,7 @@ Requirements and installation steps are in the [project README](README.md) and [
 Use a disposable local database migrated from scratch. Never run tests, migrations, or the demo seeder against production data.
 
 1. Fork or clone the repository.
-2. Install PHP dependencies with `composer install`.
+2. V2 and V3 need no Composer packages. Install dependencies with `composer install --working-dir=v1` only when working on the legacy V1 code.
 3. Copy `v2/.env.example` to `v2/.env` and configure local values.
 4. Create the local database and run `php v2/cli/migrate.php`.
 5. Optionally run `php v2/cli/seed-demo.php` for fictional demo data.

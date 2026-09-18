@@ -22,9 +22,9 @@ GymPro is a role-based gym membership management system built as a university DB
 |---|---|
 | [`v3/`](v3/) | Recommended presentation layer and browser entry point. It reuses the V2 backend and database. |
 | [`v2/`](v2/) | Canonical PHP backend, ten-table schema, migrations, services, demo seeder, tests, and technical documentation. |
-| [`app/`](app/) and root routes | Earlier application implementation retained for reference. |
-| [`docs/`](docs/) | Architecture, workflow, and testing notes for the root implementation. |
-| [`tests/`](tests/) | PHPUnit tests for the root implementation. |
+| [`v1/`](v1/) | Earlier application implementation retained for reference, with its own Composer dependencies, docs, and PHPUnit tests. |
+
+Opening the repository root in a browser redirects to the V2 interface.
 
 Start with V3 for the current user interface and V2 for backend, database, and workflow development.
 
@@ -41,10 +41,10 @@ Start with V3 for the current user interface and V2 for backend, database, and w
 
 ### 1. Install dependencies
 
-From the repository root:
+V2 and V3 require no Composer packages. Install dependencies only if you intend to run the legacy V1 implementation:
 
 ```bash
-composer install
+composer install --working-dir=v1
 ```
 
 ### 2. Configure V2 and V3
@@ -109,16 +109,16 @@ The seeded password is documented in the [V2 demo guide](v2/README.md#demo-accou
 
 ## Testing
 
-Install PHP dependencies before running the root test suite:
+Run the legacy V1 PHPUnit suite:
 
 ```bash
-composer test
+composer test --working-dir=v1
 ```
 
-Lint project PHP files:
+Lint V1 PHP files:
 
 ```bash
-composer lint
+composer lint --working-dir=v1
 ```
 
 Run V2 database and workflow checks:

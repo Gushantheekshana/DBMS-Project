@@ -4,10 +4,6 @@ Options -Indexes
     Require all denied
 </FilesMatch>
 
-RewriteEngine On
-RewriteRule ^(?:app|bootstrap|config|database|docs|storage|tests|cli|vendor)(?:/|$) - [F,L,NC]
-RewriteRule ^(?:setup|seed)\.php$ - [F,L,NC]
-
 <IfModule mod_headers.c>
     Header always set X-Content-Type-Options "nosniff"
     Header always set X-Frame-Options "SAMEORIGIN"
