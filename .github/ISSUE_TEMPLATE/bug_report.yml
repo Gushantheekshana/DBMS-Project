@@ -1,0 +1,120 @@
+name: Bug report
+description: Report a reproducible problem in GymPro
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve GymPro. Do not disclose security vulnerabilities here; follow [SECURITY.md](../../SECURITY.md) and use private vulnerability reporting.
+
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Affected application layer
+      description: Where does the problem occur?
+      options:
+        - V3 frontend
+        - V2 application or backend
+        - Database or migration
+        - Earlier root application
+        - Documentation or tooling
+        - Unsure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Affected role or workflow
+      options:
+        - Administrator
+        - Receptionist
+        - Trainer
+        - Member
+        - Public or authentication flow
+        - Installation, migration, or testing
+        - Not role-specific
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Problem summary
+      description: Briefly describe what is wrong and when it occurs.
+      placeholder: A concise description of the problem.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Provide the smallest reliable sequence that reproduces the problem.
+      placeholder: |
+        1. Sign in as ...
+        2. Open ...
+        3. Select ...
+        4. Observe ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: What should have happened?
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: What happened instead?
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include relevant versions. Do not paste secrets or your .env file.
+      placeholder: |
+        OS: Windows 11
+        Web server: Apache/XAMPP
+        PHP: 8.x
+        Database: MySQL 8.x or MariaDB 10.x
+        Browser: name and version, if applicable
+        Commit or branch: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sanitized logs or screenshots
+      description: Remove credentials, session identifiers, personal data, and local secrets before attaching evidence.
+
+  - type: textarea
+    id: checks
+    attributes:
+      label: Checks performed
+      description: List migrations and test commands you ran, including failures or checks that could not run.
+      placeholder: |
+        - php v2/cli/migrate.php status
+        - php v2/tests/schema_contract.php
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmation
+      options:
+        - label: I searched existing issues and did not find a duplicate.
+          required: true
+        - label: I removed credentials, personal data, payment data, and other sensitive information from this report.
+          required: true
+        - label: This is not an undisclosed security vulnerability.
+          required: true
