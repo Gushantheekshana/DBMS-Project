@@ -42,6 +42,43 @@ function demo_upsert(string $table, string $idColumn, string $keyColumn, string 
     return (int) db()->insert_id;
 }
 
+/** Update a reserved demo plan in place so existing membership relationships remain intact. */
+function demo_upsert_plan(string $legacyName, string $name, array $values, int $demoMemberId): int
+{
+    $legacy = db_one('SELECT MembershipPlanID FROM MEMBERSHIP_PLAN WHERE Name=? FOR UPDATE', 's', [$legacyName]);
+    $current = db_one('SELECT MembershipPlanID FROM MEMBERSHIP_PLAN WHERE Name=? FOR UPDATE', 's', [$name]);
+
+    if ($legacy !== null && $current !== null && (int) $legacy['MembershipPlanID'] !== (int) $current['MembershipPlanID']) {
+        throw new RuntimeException("Cannot replace reserved demo plan {$legacyName}: {$name} already belongs to another plan.");
+    }
+
+    $plan = $current ?? $legacy;
+    if ($legacy !== null && $current === null) {
+        $owned = db_one(
+            'SELECT MembershipID FROM MEMBERSHIP WHERE MembershipPlanID=? AND MemberID=? LIMIT 1',
+            'ii',
+            [(int) $legacy['MembershipPlanID'], $demoMemberId]
+        );
+        if ($owned === null) {
+            throw new RuntimeException("Refusing to rename {$legacyName}: it is not linked to the expected demo member.");
+        }
+    }
+
+    if ($plan === null) {
+        return demo_upsert('MEMBERSHIP_PLAN', 'MembershipPlanID', 'Name', $name, $values);
+    }
+
+    $columns = array_keys($values);
+    $assignments = implode(',', array_map(static fn(string $column): string => "{$column}=?", $columns));
+    db_execute(
+        "UPDATE MEMBERSHIP_PLAN SET Name=?,{$assignments} WHERE MembershipPlanID=?",
+        's' . str_repeat('s', count($values)) . 'i',
+        [$name, ...array_values($values), (int) $plan['MembershipPlanID']]
+    );
+
+    return (int) $plan['MembershipPlanID'];
+}
+
 try {
     $ids = transaction(static function (): array {
         $hash = password_hash(DEMO_PASSWORD, PASSWORD_DEFAULT);
@@ -83,28 +120,31 @@ try {
             db_execute("UPDATE TRAINER SET TrainerNumber='DEMO-TRN-001',FirstName='Demo',LastName='Trainer',Phone='+94000000002',Specialization='Strength and mobility',Bio='Fictional trainer for local demonstrations.',HireDate=CURDATE(),Status='ACTIVE',ReviewedAt=NULL,ReviewedByUserAccountID=NULL,RejectionReason=NULL WHERE TrainerID=?", 'i', [$trainerId]);
         }
 
-        $planId = demo_upsert('MEMBERSHIP_PLAN', 'MembershipPlanID', 'Name', 'Demo All Access', [
-            'Description' => 'Fictional three-month local demo plan.',
-            'DurationMonths' => '3',
-            'Price' => '7500.00',
+        $planId = demo_upsert_plan('Demo All Access', 'Basic Fitness', [
+            'Description' => 'Access to gym facilities and standard workout equipment.',
+            'DurationMonths' => '1',
+            'Price' => '4000.00',
             'Currency' => 'LKR',
             'ClassLimit' => '4',
             'IsActive' => '1',
-        ]);
+        ], $memberId);
 
-        $membership = db_one("SELECT MembershipID FROM MEMBERSHIP WHERE MemberID=? AND PlanNameSnapshot='Demo All Access' FOR UPDATE", 'i', [$memberId]);
+        $membership = db_one('SELECT MembershipID FROM MEMBERSHIP WHERE MemberID=? FOR UPDATE', 'i', [$memberId]);
         $startsOn = date('Y-m-d');
-        $endsOn = (new DateTimeImmutable($startsOn))->modify('+3 months')->modify('-1 day')->format('Y-m-d');
+        $endsOn = (new DateTimeImmutable($startsOn))->modify('+1 month')->modify('-1 day')->format('Y-m-d');
         if ($membership === null) {
-            db_execute("INSERT INTO MEMBERSHIP (MemberID,MembershipPlanID,PlanNameSnapshot,PriceSnapshot,CurrencySnapshot,StartsOn,EndsOn,Status) VALUES (?,?,'Demo All Access',7500.00,'LKR',?,?,'ACTIVE')", 'iiss', [$memberId, $planId, $startsOn, $endsOn]);
+            db_execute("INSERT INTO MEMBERSHIP (MemberID,MembershipPlanID,PlanNameSnapshot,PriceSnapshot,CurrencySnapshot,StartsOn,EndsOn,Status) VALUES (?,?,'Basic Fitness',4000.00,'LKR',?,?,'ACTIVE')", 'iiss', [$memberId, $planId, $startsOn, $endsOn]);
             $membershipId = (int) db()->insert_id;
         } else {
             $membershipId = (int) $membership['MembershipID'];
-            db_execute("UPDATE MEMBERSHIP SET MembershipPlanID=?,PriceSnapshot=7500.00,CurrencySnapshot='LKR',StartsOn=?,EndsOn=?,Status='ACTIVE',CancelledAt=NULL WHERE MembershipID=?", 'issi', [$planId, $startsOn, $endsOn, $membershipId]);
+            db_execute("UPDATE MEMBERSHIP SET MembershipPlanID=?,PlanNameSnapshot='Basic Fitness',PriceSnapshot=4000.00,CurrencySnapshot='LKR',StartsOn=?,EndsOn=?,Status='ACTIVE',CancelledAt=NULL WHERE MembershipID=?", 'issi', [$planId, $startsOn, $endsOn, $membershipId]);
         }
 
-        if (db_one('SELECT MembershipPaymentID FROM MEMBERSHIP_PAYMENT WHERE IdempotencyKey=?', 's', ['V2-DEMO-PAYMENT-001']) === null) {
-            db_execute("INSERT INTO MEMBERSHIP_PAYMENT (MembershipID,Amount,Currency,Status,Method,TransactionReference,IdempotencyKey,PaidAt,RecordedByUserAccountID,Notes) VALUES (?,7500.00,'LKR','PAID','CARD','V2-DEMO-TXN-001','V2-DEMO-PAYMENT-001',NOW(),?,'Fictional demo payment')", 'ii', [$membershipId, $users['MEMBER']]);
+        $demoPayment = db_one('SELECT MembershipPaymentID FROM MEMBERSHIP_PAYMENT WHERE IdempotencyKey=? FOR UPDATE', 's', ['V2-DEMO-PAYMENT-001']);
+        if ($demoPayment === null) {
+            db_execute("INSERT INTO MEMBERSHIP_PAYMENT (MembershipID,Amount,Currency,Status,Method,TransactionReference,IdempotencyKey,PaidAt,RecordedByUserAccountID,Notes) VALUES (?,4000.00,'LKR','PAID','CARD','V2-DEMO-TXN-001','V2-DEMO-PAYMENT-001',NOW(),?,'Fictional demo payment')", 'ii', [$membershipId, $users['MEMBER']]);
+        } else {
+            db_execute("UPDATE MEMBERSHIP_PAYMENT SET MembershipID=?,Amount=4000.00,Currency='LKR',Status='PAID',Method='CARD',TransactionReference='V2-DEMO-TXN-001',PaidAt=NOW(),RecordedByUserAccountID=?,Notes='Fictional demo payment' WHERE MembershipPaymentID=?", 'iii', [$membershipId, $users['MEMBER'], (int) $demoPayment['MembershipPaymentID']]);
         }
 
         $class = db_one("SELECT GymClassID FROM GYM_CLASS WHERE Name='Demo Functional Fitness' AND TrainerID=? FOR UPDATE", 'i', [$trainerId]);
@@ -144,7 +184,7 @@ try {
                 'number' => '101',
                 'member' => ['Avery', 'Sample', '1998-02-14', '+94000000101'],
                 'trainer' => ['Riley', 'Example', '+94000000201', 'Functional fitness'],
-                'plan' => ['Demo Starter Monthly', '1', '2500.00', '4'],
+                'plan' => ['Demo Starter Monthly', 'Standard Plus', 'Full gym access plus selected group fitness classes.', '3', '10500.00', '8'],
                 'class' => 'Demo Mobility Foundations',
                 'attendance' => 'PRESENT',
                 'payment_method' => 'CARD',
@@ -153,7 +193,7 @@ try {
                 'number' => '102',
                 'member' => ['Jordan', 'Placeholder', '1996-05-23', '+94000000102'],
                 'trainer' => ['Morgan', 'Sample', '+94000000202', 'Cardio conditioning'],
-                'plan' => ['Demo Fitness Quarterly', '3', '6800.00', '8'],
+                'plan' => ['Demo Fitness Quarterly', 'Premium', 'Full gym and group-class access plus 1 personal training session per month.', '6', '18000.00', null],
                 'class' => 'Demo Cardio Circuit',
                 'attendance' => 'LATE',
                 'payment_method' => 'CASH',
@@ -162,7 +202,7 @@ try {
                 'number' => '103',
                 'member' => ['Casey', 'Example', '2001-08-09', '+94000000103'],
                 'trainer' => ['Taylor', 'Placeholder', '+94000000203', 'Strength training'],
-                'plan' => ['Demo Strength Quarterly', '3', '7200.00', '6'],
+                'plan' => ['Demo Strength Quarterly', 'VIP Elite', 'Full gym access, unlimited classes, 2 personal training sessions per month, and nutrition consultation.', '12', '32000.00', null],
                 'class' => 'Demo Strength Basics',
                 'attendance' => 'ABSENT',
                 'payment_method' => 'BANK_TRANSFER',
@@ -171,7 +211,7 @@ try {
                 'number' => '104',
                 'member' => ['Quinn', 'Fiction', '1999-11-30', '+94000000104'],
                 'trainer' => ['Cameron', 'Fiction', '+94000000204', 'Yoga and flexibility'],
-                'plan' => ['Demo Unlimited Half-Year', '6', '12800.00', null],
+                'plan' => ['Demo Unlimited Half-Year', 'Family Plan', 'Membership package for 2–4 family members with full gym access.', '12', '50000.00', null],
                 'class' => 'Demo Yoga Flow',
                 'attendance' => 'EXCUSED',
                 'payment_method' => 'OTHER',
@@ -180,7 +220,7 @@ try {
                 'number' => '105',
                 'member' => ['Skyler', 'Mock', '1997-04-17', '+94000000105'],
                 'trainer' => ['Dakota', 'Mock', '+94000000205', 'Endurance coaching'],
-                'plan' => ['Demo Annual Plus', '12', '24000.00', null],
+                'plan' => ['Demo Annual Plus', 'Student Plan', 'Discounted gym membership for students with a valid student ID.', '6', '8500.00', '6'],
                 'class' => 'Demo Endurance Workshop',
                 'attendance' => 'PRESENT',
                 'payment_method' => 'CARD',
@@ -253,15 +293,15 @@ try {
                 );
             }
 
-            [$planName, $durationMonths, $price, $classLimit] = $scenario['plan'];
-            $scenarioPlanId = demo_upsert('MEMBERSHIP_PLAN', 'MembershipPlanID', 'Name', $planName, [
-                'Description' => 'Clearly fictional plan for local demonstrations.',
+            [$legacyPlanName, $planName, $planDescription, $durationMonths, $price, $classLimit] = $scenario['plan'];
+            $scenarioPlanId = demo_upsert_plan($legacyPlanName, $planName, [
+                'Description' => $planDescription,
                 'DurationMonths' => $durationMonths,
                 'Price' => $price,
                 'Currency' => 'LKR',
                 'ClassLimit' => $classLimit,
                 'IsActive' => '1',
-            ]);
+            ], $scenarioMemberId);
 
             $membershipStartsOn = (new DateTimeImmutable('today'))->modify('-15 days')->format('Y-m-d');
             $membershipEndsOn = (new DateTimeImmutable($membershipStartsOn))
@@ -269,9 +309,9 @@ try {
                 ->modify('-1 day')
                 ->format('Y-m-d');
             $scenarioMembership = db_one(
-                'SELECT MembershipID FROM MEMBERSHIP WHERE MemberID=? AND PlanNameSnapshot=? FOR UPDATE',
-                'is',
-                [$scenarioMemberId, $planName]
+                'SELECT MembershipID FROM MEMBERSHIP WHERE MemberID=? FOR UPDATE',
+                'i',
+                [$scenarioMemberId]
             );
             if ($scenarioMembership === null) {
                 db_execute(
@@ -283,9 +323,9 @@ try {
             } else {
                 $scenarioMembershipId = (int) $scenarioMembership['MembershipID'];
                 db_execute(
-                    "UPDATE MEMBERSHIP SET MembershipPlanID=?,PriceSnapshot=?,CurrencySnapshot='LKR',StartsOn=?,EndsOn=?,Status='ACTIVE',CancelledAt=NULL WHERE MembershipID=?",
-                    'idssi',
-                    [$scenarioPlanId, (float) $price, $membershipStartsOn, $membershipEndsOn, $scenarioMembershipId]
+                    "UPDATE MEMBERSHIP SET MembershipPlanID=?,PlanNameSnapshot=?,PriceSnapshot=?,CurrencySnapshot='LKR',StartsOn=?,EndsOn=?,Status='ACTIVE',CancelledAt=NULL WHERE MembershipID=?",
+                    'isdssi',
+                    [$scenarioPlanId, $planName, (float) $price, $membershipStartsOn, $membershipEndsOn, $scenarioMembershipId]
                 );
             }
 

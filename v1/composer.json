@@ -1,6 +1,7 @@
 {
   "name": "university/gympro",
   "description": "Role-based gym membership management system",
+  "license": "MIT",
   "type": "project",
   "require": {
     "php": ">=8.1",
